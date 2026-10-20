@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="/" class="back-btn">← Back to Home</a>
+<div class="card">
+    <h1>Sorting Algorithm Forge</h1>
+    <p>Enter numbers separated by commas and choose a sorting method to organize them.</p>
+    {% if message %}<div class="result"><div class="result-title">Sorting Info</div><p>{{ message }}</p></div>{% endif %}
+    <form method="POST">
+        <label>Numbers (comma-separated)</label>
+        <input type="text" name="numbers" placeholder="Example: 42, 7, 19, 3, 85, 12" value="{{ input_str or '' }}" required>
+        <div class="stack-actions">
+            <button type="submit" name="algorithm" value="bubble">Bubble Sort</button>
+            <button type="submit" name="algorithm" value="selection">Selection Sort</button>
+            <button type="submit" name="algorithm" value="insertion">Insertion Sort</button>
+        </div>
+    </form>
+    <h2 style="margin-top:28px">Sorted Result</h2>
+    <div class="sorting-visual">
+        {% if sorted_items %}
+            {% for item in sorted_items %}<div class="sorting-block">{{ item }}</div>{% endfor %}
+        {% else %}
+            <div class="stack-empty" style="width:100%; text-align:center;">Provide numbers above to sort.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="/" class="back-btn">← Back to Home</a>
+<div class="card">
+    <h1>Stack of Wisdom</h1>
+    <p>A last-in, first-out (LIFO) structure. Push an element onto the top, pop the top element, or peek without removing it.</p>
+    {% if message %}<div class="result"><div class="result-title">Stack Update</div><p>{{ message }}</p></div>{% endif %}
+    <form method="POST">
+        <label>Value to push</label>
+        <input type="text" name="value" placeholder="Enter a value (needed for Push)">
+        <div class="stack-actions">
+            <button type="submit" name="action" value="push">Push to Stack</button>
+            <button type="submit" name="action" value="pop">Pop Top</button>
+            <button type="submit" name="action" value="peek">Peek Top</button>
+            <button type="submit" name="action" value="clear">Clear Stack</button>
+        </div>
+    </form>
+    <h2 style="margin-top:28px">Current Stack <span style="font-size:14px;color:#8b3024">(top → bottom)</span></h2>
+    <div class="stack-visual">
+        {% if stack_items %}
+            {% for item in stack_items %}<div class="stack-block">{{ item }}</div>{% endfor %}
+        {% else %}
+            <div class="stack-empty">The stack is empty. Push a value to begin.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

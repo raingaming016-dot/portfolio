@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="/" class="back-btn">← Back to Home</a>
+<div class="card">
+    <h1>Uppercase Converter</h1>
+    <p>Enter any word or sentence and convert it into uppercase.</p>
+    <form method="POST">
+        <label>Enter text</label>
+        <input type="text" name="text" placeholder="Example: hello world" required>
+        <button type="submit">Convert to Uppercase</button>
+    </form>
+    {% if result %}
+    <div class="result">
+        <div class="result-title">Result</div>
+        <p>{{ result }}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

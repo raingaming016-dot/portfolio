@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="/" class="back-btn">← Back to Home</a>
+<div class="card">
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px; align-items: center;">
+        <div style="background: radial-gradient(circle at top, #633126, #21150f 72%); color: #e5d2aa; padding: 40px; border: 1px solid #a17a42; text-align: center;">
+            
+            <!-- Profile Image Container -->
+            <div style="width: 130px; height: 130px; border: 4px double #754626; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Rainier Louise Chico" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+            </div>
+
+            <h2 style="color: white;">Rainier Louise Chico</h2>
+            <p style="color: #d8c6a4;">Computer Engineering</p>
+        </div>
+        <div>
+            <h1>About Me</h1>
+            <p>Hello! I'm Rainier Louise Chico, a Computer Engineering student interested in hardware, programming, computers, technology, and web development.</p>
+            <p>This website demonstrates programming concepts learned using Python and Flask.</p>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;">
+                <div style="background: #d8c39b; padding: 18px; border-left: 4px solid #8b3024;"><strong>Course</strong><span>: BS Computer Engineering</span></div>
+                <div style="background: #d8c39b; padding: 18px; border-left: 4px solid #8b3024;"><strong>School</strong><span>: Polytechnic University of the Philippines</span></div>
+                <div style="background: #d8c39b; padding: 18px; border-left: 4px solid #8b3024;"><strong>Year Level</strong><span>: 2nd Year</span></div>
+                <div style="background: #d8c39b; padding: 18px; border-left: 4px solid #8b3024;"><strong>Interests</strong><span>: Web Development and Hardware</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

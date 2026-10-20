@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="/" class="back-btn">← Back to Home</a>
+<div class="card">
+    <h1>Area of a Triangle</h1>
+    <p>Calculate the area of a triangle using its base and height.</p>
+    <div class="formula" style="background: #d8c39b; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; color: #8b3024; margin: 20px 0;">A = ½ × base × height</div>
+    <form method="POST">
+        <label>Base</label>
+        <input type="number" name="base" step="any" placeholder="Enter base" required>
+        <label>Height</label>
+        <input type="number" name="height" step="any" placeholder="Enter height" required>
+        <button type="submit">Calculate Area</button>
+    </form>
+    {% if result %}
+    <div class="result"><div class="result-title">Calculated Area</div><p>{{ "%.2f"|format(result) }} square units</p></div>
+    {% endif %}
+</div>
+{% endblock %}

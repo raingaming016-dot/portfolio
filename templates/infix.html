@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="/" class="back-btn">← Back to Home</a>
+<div class="card">
+    <h1>Infix to Postfix Converter</h1>
+    <p>Convert standard infix math expressions (e.g., <code>A + B * C</code>) into postfix notation (e.g., <code>A B C * +</code>).</p>
+    <form method="POST">
+        <label>Infix Expression</label>
+        <input type="text" name="expression" placeholder="Example: (A + B) * C - D" required>
+        <button type="submit">Convert to Postfix</button>
+    </form>
+    {% if result %}
+    <div class="result">
+        <div class="result-title">Postfix Result</div>
+        <p style="font-size: 20px; font-weight: bold; letter-spacing: 2px;">{{ result }}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

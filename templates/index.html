@@ -1,0 +1,212 @@
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def add(self, data):
+        new_node = Node(data)
+
+        if self.head is None:
+            self.head = new_node
+        else:
+            current = self.head
+
+            while current.next:
+                current = current.next
+
+            current.next = new_node
+
+    def delete(self, data):
+        current = self.head
+        previous = None
+
+        while current:
+            if current.data == data:
+                if previous is None:
+                    self.head = current.next
+                else:
+                    previous.next = current.next
+
+                return True
+
+            previous = current
+            current = current.next
+
+        return False
+
+    def search(self, data):
+        current = self.head
+
+        while current:
+            if current.data == data:
+                return True
+
+            current = current.next
+
+        return False
+
+    def get_all(self):
+        items = []
+        current = self.head
+
+        while current:
+            items.append(current.data)
+            current = current.next
+
+        return items
+
+
+linked_list = LinkedList()
+
+
+@app.route('/')
+def index():
+    return render_template(
+        'index.html',
+        page='home',
+        result=None,
+        message=None,
+        linked_items=linked_list.get_all()
+    )
+
+
+@app.route('/works', methods=['GET', 'POST'])
+def works():
+    result = None
+
+    if request.method == 'POST':
+        input_string = request.form.get('inputString', '')
+        result = input_string.upper()
+
+    return render_template(
+        'index.html',
+        page='uppercase',
+        result=result,
+        message=None,
+        linked_items=linked_list.get_all()
+    )
+
+
+@app.route('/works/area/circle', methods=['GET', 'POST'])
+def acircle():
+    result = None
+    message = None
+
+    if request.method == 'POST':
+        try:
+            radius = float(request.form.get('radius', ''))
+
+            if radius < 0:
+                message = "Radius cannot be negative."
+            else:
+                result = 3.14 * radius * radius
+
+        except ValueError:
+            message = "Please enter a valid number."
+
+    return render_template(
+        'index.html',
+        page='circle',
+        result=result,
+        message=message,
+        linked_items=linked_list.get_all()
+    )
+
+
+@app.route('/works/area/triangle', methods=['GET', 'POST'])
+def triangle():
+    result = None
+    message = None
+
+    if request.method == 'POST':
+        try:
+            base = float(request.form.get('base', ''))
+            height = float(request.form.get('height', ''))
+
+            if base < 0 or height < 0:
+                message = "Base and height cannot be negative."
+            else:
+                result = 0.5 * base * height
+
+        except ValueError:
+            message = "Please enter valid numbers."
+
+    return render_template(
+        'index.html',
+        page='triangle',
+        result=result,
+        message=message,
+        linked_items=linked_list.get_all()
+    )
+
+
+@app.route('/works/linked-list', methods=['GET', 'POST'])
+def linkedlist():
+    message = None
+
+    if request.method == 'POST':
+        action = request.form.get('action')
+        value = request.form.get('value', '').strip()
+
+        if action == 'add':
+            if value:
+                linked_list.add(value)
+                message = f'"{value}" was added to the linked list.'
+            else:
+                message = "Please enter a value."
+
+        elif action == 'delete':
+            if linked_list.delete(value):
+                message = f'"{value}" was deleted.'
+            else:
+                message = f'"{value}" was not found.'
+
+        elif action == 'search':
+            if linked_list.search(value):
+                message = f'"{value}" was found in the linked list.'
+            else:
+                message = f'"{value}" was not found.'
+
+    return render_template(
+        'index.html',
+        page='linkedlist',
+        result=None,
+        message=message,
+        linked_items=linked_list.get_all()
+    )
+
+
+@app.route('/profile')
+def profile():
+    return render_template(
+        'index.html',
+        page='profile',
+        result=None,
+        message=None,
+        linked_items=linked_list.get_all()
+    )
+
+
+@app.route('/contact')
+def contact():
+    return render_template(
+        'index.html',
+        page='contact',
+        result=None,
+        message=None,
+        linked_items=linked_list.get_all()
+    )
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

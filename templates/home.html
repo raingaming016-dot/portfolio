@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+    <div class="eyebrow">The Path of the Warrior</div>
+    <h1>Enter the Realm<br>With <span>Rainier Louise Chico</span></h1>
+    <p>Welcome to my stronghold. This portfolio gathers my coding quests, technical experiments, and works forged with Python and Flask.</p>
+    <a href="/profile" class="hero-button">View Warrior Profile</a>
+    <div class="hero-caption">A living archive of experiments, skills, and quests</div>
+</section>
+
+<section class="yin-yang-section" aria-labelledby="works-orbit-title">
+    <div class="eyebrow">The Balance of Logic and Creativity</div>
+    <h2 id="works-orbit-title">My Works</h2>
+    <p>Click the Yin-Yang center to summon and awaken my works from the core!</p>
+    <div class="orbit-stage" id="orbitStage">
+        <div class="orbit-ring" id="orbitRing" aria-hidden="true"></div>
+        <div class="yin-yang-core" id="yinYangBtn" role="button" aria-label="Yin-yang symbol. Click to deploy works.">
+            <svg class="yin-yang-symbol" viewBox="0 0 200 200" aria-hidden="true">
+                <defs>
+                    <linearGradient id="ivoryJade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffdf4"/><stop offset="1" stop-color="#fff8e8"/></linearGradient>
+                    <linearGradient id="obsidian" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#343638"/><stop offset="1" stop-color="#242426"/></linearGradient>
+                    <linearGradient id="bronzeRim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b5"/><stop offset="1" stop-color="#6c421e"/></linearGradient>
+                    <clipPath id="taijituClip"><circle cx="100" cy="100" r="84"/></clipPath>
+                </defs>
+                <circle cx="100" cy="100" r="97" fill="#080706" stroke="url(#bronzeRim)" stroke-width="5"/>
+                <circle cx="100" cy="100" r="86" fill="url(#obsidian)" stroke="url(#bronzeRim)" stroke-width="1.5"/>
+                <g clip-path="url(#taijituClip)">
+                    <circle cx="100" cy="100" r="84" fill="url(#obsidian)"/>
+                    <path d="M100 16 A42 42 0 0 1 100 100 A42 42 0 0 0 100 184 A84 84 0 0 1 100 16 Z" fill="url(#ivoryJade)"/>
+                    <circle cx="100" cy="58" r="13.5" fill="url(#obsidian)"/>
+                    <circle cx="100" cy="142" r="13.5" fill="url(#ivoryJade)"/>
+                </g>
+            </svg>
+        </div>
+        <a class="orbit-work" href="/uppercase"><strong>Scroll of Words</strong><small>Uppercase Converter</small></a>
+        <a class="orbit-work" href="/circle"><strong>Circle Calculation</strong><small>Area Calculator</small></a>
+        <a class="orbit-work" href="/triangle"><strong>Triangle Forge</strong><small>Geometry</small></a>
+        <a class="orbit-work stack-orbit" href="/stack"><strong>♟ Stack of Wisdom</strong><small>Stack Structure</small></a>
+        <a class="orbit-work" href="/linked-list"><strong>Warrior Chain</strong><small>Linked List</small></a>
+        <a class="orbit-work" href="/sorting"><strong>⚡ Sorting Forge</strong><small>Array Orderer</small></a>
+        <a class="orbit-work" href="/infix-postfix"><strong>🔄 Infix/Postfix</strong><small>Expression Converter</small></a>
+        <a class="orbit-work" href="/profile"><strong>Warrior Chronicle</strong><small>My Profile</small></a>
+    </div>
+</section>
+
+<section class="clan-section">
+    <div class="clan-heading">
+        <div class="eyebrow">Choose Your Allegiance</div>
+        <h2>The Four Great Clans</h2>
+        <p>Four paths. Four philosophies. One realm shaped by your choices.</p>
+    </div>
+    <div class="clan-row">
+        <article class="clan dragon"><div class="crest"><span>龍</span></div><strong>Dragon</strong><small>Honor · Discipline</small></article>
+        <article class="clan serpent"><div class="crest"><span>蛇</span></div><strong>Serpent</strong><small>Strategy · Shadows</small></article>
+        <article class="clan wolf"><div class="crest"><span>狼</span></div><strong>Wolf</strong><small>Freedom · Strength</small></article>
+        <article class="clan lotus"><div class="crest"><span>蓮</span></div><strong>Lotus</strong><small>Mystery · Knowledge</small></article>
+    </div>
+</section>
+
+<div class="section-title">
+    <h2>The Clan's Missions</h2>
+    <p>Choose a mission from the scrolls below.</p>
+</div>
+
+<div class="grid">
+    <div class="feature"><div class="feature-icon">📜</div><h3>Scroll of Transformation</h3><p>Convert any word or sentence into uppercase.</p><a href="/uppercase">Try it →</a></div>
+    <div class="feature"><div class="feature-icon">☯</div><h3>Circle of Calculation</h3><p>Calculate the area of a circle.</p><a href="/circle">Try it →</a></div>
+    <div class="feature"><div class="feature-icon">⚒</div><h3>Triangle Forge</h3><p>Calculate triangle area with base and height.</p><a href="/triangle">Try it →</a></div>
+    <div class="feature"><div class="feature-icon">⛓</div><h3>Warrior Chain</h3><p>Manage elements in a linked list.</p><a href="/linked-list">Try it →</a></div>
+    <div class="feature"><div class="feature-icon">📚</div><h3>Stack of Wisdom</h3><p>Push, pop, and peek using a stack.</p><a href="/stack">Try it →</a></div>
+    <div class="feature"><div class="feature-icon">⚡</div><h3>Sorting Forge</h3><p>Order arrays using sorting algorithms.</p><a href="/sorting">Try it →</a></div>
+    <div class="feature"><div class="feature-icon">🔄</div><h3>Infix to Postfix</h3><p>Convert expressions into postfix notation.</p><a href="/infix-postfix">Try it →</a></div>
+    <div class="feature"><div class="feature-icon">🛡️</div><h3>Warrior's Chronicle</h3><p>Learn more about my profile.</p><a href="/profile">View profile →</a></div>
+    <div class="feature"><div class="feature-icon">🏯</div><h3>Send a Raven</h3><p>View my contact details.</p><a href="/contact">Contact me →</a></div>
+</div>
+{% endblock %}
